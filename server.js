@@ -22,7 +22,7 @@ var port = process.env.PORT || 8080;
 // TODO: (uncomment after you enter in your own credentials in config/db.js)
 // mongoose.connect(db.url);
 
-mongoose.connect("mongodb+srv://ray:raypassword@cluster0-sv1an.mongodb.net/admin").then(
+mongoose.connect("mongodb+srv://ray:raypassword@cluster0-sv1an.mongodb.net/admin", options={ useNewUrlParser: true }).then(
     () => { console.log("SUCCESS: Connected to MongoDB Atlas") /** ready to use. The `mongoose.connect()` promise resolves to undefined. */ },
     err => { console.log("FAIL: Failed to connect to MongoDB Atlas"); process.exit(-1) /** handle initial connection error */ }
 );;
