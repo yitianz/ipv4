@@ -4,15 +4,7 @@
 var tables = require('./models/user');
 var User = tables.user;
 var one = tables.one;
-var user = new User({});
-user.save();
 
-
-//var student = new Student({id : "i", courses : ["61a"], gpas : [40], majors : ["cs"]});
-
-//student.save();
-//var major = new Major({name : "CS", members: 10, gpa_sum : 40});
-//major.save();
     module.exports = function(app) {
 
         // server routes ===========================================================
@@ -24,7 +16,7 @@ user.save();
             // use mongoose to get all users in the database
             User.find(function(err, nerds) {
                 // if there is an error retrieving, send the error
-                    // nothing after res.send(err) will execute
+                // nothing after res.send(err) will execute
                 if (err)
                     res.send(err);
                 
@@ -38,7 +30,7 @@ user.save();
         // frontend routes =========================================================
         // route to handle all angular requests
         app.get('*', function(req, res) {
-            res.sendfile('./public/views/index.html'); // load our public/index.html file
+            res.sendFile('./public/views/index.html'); // load our public/index.html file
         });
     
     };

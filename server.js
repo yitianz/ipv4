@@ -15,7 +15,6 @@ var app = express();
 //var db = require('./config/db');
 
 // set our port
-
 var port = process.env.PORT || 8080; 
 
 app.use(bodyParser.json()); 
