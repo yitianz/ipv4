@@ -7,13 +7,14 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose       = require('mongoose');
 var console        = require('console');
+var Promise = require('bluebird');
 
 var app = express();
 
 // Configuration ===========================================
 
 // config files
-var db = require('./config/db');
+//var db = require('./config/db');
 
 // set our port
 var port = process.env.PORT || 8080; 
@@ -29,9 +30,8 @@ mongoose.connect("mongodb+srv://ray:raypassword@cluster0-sv1an.mongodb.net/admin
 
 var database = mongoose.connection;
 
+var port = process.env.PORT || 8080; 
 
-// get all data/stuff of the body (POST) parameters
-// parse application/json 
 app.use(bodyParser.json()); 
 
 // parse application/vnd.api+json as json
