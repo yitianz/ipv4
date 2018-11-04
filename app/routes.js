@@ -14,7 +14,7 @@ var User = require('./models/user');
             // use mongoose to get all users in the database
             User.find(function(err, nerds) {
                 // if there is an error retrieving, send the error
-                    // nothing after res.send(err) will execute
+                // nothing after res.send(err) will execute
                 if (err)
                     res.send(err);
                 
@@ -28,7 +28,7 @@ var User = require('./models/user');
         // frontend routes =========================================================
         // route to handle all angular requests
         app.get('*', function(req, res) {
-            res.sendfile('./public/views/index.html'); // load our public/index.html file
+            res.sendFile('./public/views/index.html'); // load our public/index.html file
         });
     
     };
