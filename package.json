@@ -6,7 +6,7 @@
     "body-parser": "^1.18.3",
     "bootstrap-3-typeahead": "^4.0.2",
     "express": "^4.16.4",
-    "method-override": "~2.0.2",
-    "mongoose": "~3.8.0"
+    "method-override": "^3.0.0",
+    "mongoose": "^5.3.9"
   }
 }
