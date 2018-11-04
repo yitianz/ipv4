@@ -2,9 +2,46 @@
 //var Major = require("./database.js");
 // grab the user model we just created
 var tables = require('./models/user');
-var User = tables.user;
-var one = tables.one;
+var User = tables.User;
+var Class = tables.Class;
+var Major = tables.Major;
 
+
+// returns a User
+function addUser(name, id, completed_classes, majors, graduation_semester) {
+    var user = new User({
+	name : name,
+	id : id,
+	completed_classes : completed_classes,
+	majors : majors,
+	graduation_semester
+    });
+    user.save();
+};
+
+// gets a usr promise
+// use <return>.then(function(result) {return result;});
+// to get value
+// <return> is null if user doesn't exist
+function getUserPromise(id) {
+    return User.findOne({id : id}).exec();
+}
+
+// remove and return user by id
+function removeUser(id) {
+    User.findOne({id : id}).exec().then(
+	function(result) {
+	    result.remove();
+	    return result;
+	}
+    ).catch(
+	function(result) {
+	    return null;
+	}
+    );
+}
+
+ 
     module.exports = function(app) {
 
         // server routes ===========================================================
