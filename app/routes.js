@@ -1,8 +1,13 @@
 // app/routes.js
-
+var Student, Major = require("./database.js");
 // grab the user model we just created
 var User = require('./models/user');
 
+console.log(Major);
+//var student = new Student({id : "i", courses : ["61a"], gpas : [40], majors : ["cs"]});
+//student.save();
+//var major = new Major({name : "CS", members: 10, gpa_sum : 40});
+//major.save();
     module.exports = function(app) {
 
         // server routes ===========================================================
