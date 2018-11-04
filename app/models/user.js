@@ -21,6 +21,21 @@ var User  = mongoose.model('User', {
     graduation_semester : { type : String, default: '' }
 });
 
+var Class = mongoose.model('Class', {
+    name : String,
+    class_code : String,
+    dates_offered : [],
+    prerequisites: []
+});
 
-module.exports = {user : User,
-		  one : 1}
+var Major = mongoose.model('Major', {
+    name : String,
+    upper_divs : [],
+    lower_divs : []
+});
+
+
+
+module.exports = {User : User,
+		  Major : Major,
+		  Class : Class};
