@@ -1,14 +1,23 @@
 <!-- public/views/index.html -->
 <html>
 	<head>
+    <title>Bear Planner</title>
+
+    <!-- CSS and Bootstrap-->
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	  <title>Bear Planner</title>
+    
+    <!-- ANGULAR CUSTOM -->
+    <script src="js/controllers/MainCtrl.js"></script>
+    <script src="js/controllers/UserCtrl.js"></script>
+    <script src="js/services/UserService.js"></script>
+    <script src="js/appRoutes.js"></script>
+    <script src="js/app.js"></script>
 	</head>
 	<body>
     <div class ="container">
     <div id="head">
-      <p class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link">Oski</a></p>
+      <p class="navbar-text navbar-right">Signed in as <a href="/users" class="navbar-link">Oski</a></p>
       <h1>Bear Planner</h1>
     </div>
     <div class ="main">
@@ -36,33 +45,21 @@
             <h3 class="panel-title">Four Year Plan</h3>
           </div>
           <div class="panel-body">
-            <ul class="StackedList">
-              {{ StackedListItem.render('zebra',    {index: 1, draggable: true}) }}
-              {{ StackedListItem.render('giraffe',  {index: 2, draggable: true}) }}
-              {{ StackedListItem.render('baboon',   {index: 3                 }) }}
-              {{ StackedListItem.render('elephant', {index: 4, draggable: true}) }}
-              {{ StackedListItem.render('leopard',  {index: 5, draggable: true}) }}
-            </ul>
-            <!-- <div class="row">
-              <div class="col-sm-5">Fall 2016</div>
-              <ul class="StackedList">
-                {{ StackedListItem.render('zebra',    {index: 1, draggable: true}) }}
-                {{ StackedListItem.render('giraffe',  {index: 2, draggable: true}) }}
-                {{ StackedListItem.render('baboon',   {index: 3                 }) }}
-                {{ StackedListItem.render('elephant', {index: 4, draggable: true}) }}
-                {{ StackedListItem.render('leopard',  {index: 5, draggable: true}) }}
-              </ul>
-            </div>
-              <div class="col-sm-5">Spring 2017</div>
-              <div class="w-100"></div>
-              <div class="col-sm-5">Fall 2017</div>
-              <div class="col-sm-5">Spring 2018</div>
-              <div class="w-100"></div>
-              <div class="col-sm-5">Fall 2018</div>
-              <div class="col-sm-5">Spring 2019</div>
-              <div class="w-100"></div>
-              <div class="col-sm-5">Fall 2019</div>
-              <div class="col-sm-5">Spring 2020</div> -->
+            <ul dnd-list="list">
+              <!-- The dnd-draggable directive makes an element draggable and will
+              transfer the object that was assigned to it. If an element was
+              dragged away, you have to remove it from the original list
+              yourself using the dnd-moved attribute -->
+              <li ng-repeat="item in list"
+              dnd-draggable="item"
+              dnd-moved="list.splice($index, 1)"
+              dnd-effect-allowed="move"
+              dnd-selected="models.selected = item"
+              ng-class="{'selected': models.selected === item}"
+              >
+              hi
+            </li>
+          </ul>
             </div>
           </div>
         </div>

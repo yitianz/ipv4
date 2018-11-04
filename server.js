@@ -5,9 +5,7 @@
 var express        = require('express');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var mongoose       = require('mongoose');
 var console        = require('console');
-var Promise = require('bluebird');
 
 var app = express();
 
