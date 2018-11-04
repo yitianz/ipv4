@@ -5,3 +5,39 @@ body {
 h1 {
   color: blue;
 }
+
+.head {
+  display: flex;
+  flex-direction: column;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.degree-selector {
+}
+
+.class-selector {
+}
+
+.four-year-view {
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.shopping-cart {
+
+}
+
+.requirements-list {
+
+}
+
+.bottom {
+
+}
